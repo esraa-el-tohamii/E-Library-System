@@ -1,0 +1,595 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Cairo', sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f5fb;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-size: 14px;
+}
+
+.container {
+    max-width: 600px;
+    margin: 15px auto;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    direction: ltr;
+    flex: 1;
+}
+
+h2 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-size: 20px;
+    text-align: center;
+}
+
+p {
+    margin-bottom: 10px;
+    font-size: 14px;
+    direction: ltr;
+}
+
+form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 6px;
+    width: 100%;
+    max-width: 350px;
+    margin: 15px auto;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Form group styling */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.form-group label {
+    font-size: 12px;
+    color: #2c3e50;
+    margin-bottom: 0;
+    text-align: left;
+}
+
+input[type="text"],
+input[type="number"],
+select,
+input[type="date"],
+input[type="email"],
+input[type="password"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 12px;
+    width: 100%;
+}
+
+input:focus,
+select:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 4px rgba(52, 152, 219, 0.3);
+}
+
+button {
+    padding: 8px 12px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: background-color 0.3s;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+/* Tabs styling */
+.tabs {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.tab-button {
+    padding: 6px 12px;
+    background-color: #ecf0f1;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    color: #2c3e50;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    min-width: 100px;
+    text-align: center;
+}
+
+.tab-button[href="view_books.php"],
+.tab-button[href="view_admins.php"] {
+    padding: 8px 16px;
+    font-size: 14px;
+    min-width: 120px;
+}
+
+.tab-button.active,
+.tab-button:hover {
+    background-color: #3498db;
+    color: #fff;
+}
+
+.tab-content {
+    display: none;
+    padding: 10px;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Table styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+table th,
+table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+    font-size: 12px;
+}
+
+table th {
+    background-color: #2c3e50;
+    color: #fff;
+}
+
+table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+table tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Actions styling */
+.actions {
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+}
+
+.action-btn {
+    padding: 5px 10px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 12px;
+    display: inline-block;
+    width: 60px;
+    text-align: center;
+}
+
+.action-btn.edit {
+    background-color: #3498db;
+    color: #fff;
+}
+
+.action-btn.edit:hover {
+    background-color: #2980b9;
+}
+
+.action-btn.delete {
+    background-color: #e74c3c;
+    color: #fff;
+}
+
+.action-btn.delete:hover {
+    background-color: #c0392b;
+}
+
+a {
+    color: #3498db;
+    text-decoration: none;
+    font-size: 12px;
+    display: inline-block;
+    margin: 8px 0;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #2980b9;
+}
+
+/* تنسيق عمود Available Copies */
+table td:nth-child(6) {
+    font-weight: bold;
+    color: #27ae60;
+}
+
+/* تنسيق الحالة */
+.status {
+    font-weight: bold;
+}
+
+.status-available {
+    color: #27ae60 !important;
+}
+
+.status-not-available {
+    color: #e74c3c !important;
+    background-color: #f9e3e3;
+    border-radius: 4px;
+    padding: 4px 8px;
+}
+
+/* تنسيق نموذج Borrow */
+.borrow-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    padding: 4px;
+}
+
+/* تنسيق المجموعات داخل النموذج */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.form-group label {
+    font-size: 12px;
+    color: #2c3e50;
+    margin-bottom: 4px;
+    text-align: center;
+}
+
+/* تنسيق حقل عدد النسخ */
+.copy-input {
+    width: 50px;
+    padding: 4px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 10px;
+    text-align: center;
+}
+
+.copy-input:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 4px rgba(52, 152, 219, 0.3);
+}
+
+/* تنسيق حقل التاريخ */
+.date-input {
+    padding: 4px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 10px;
+    width: 100px;
+    color: #2c3e50;
+}
+
+.date-input:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 4px rgba(52, 152, 219, 0.3);
+}
+
+/* تنسيق زر Borrow */
+.borrow-btn {
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 10px;
+    transition: background-color 0.3s;
+}
+
+.borrow-available {
+    background-color: #3498db;
+    color: #fff;
+    cursor: pointer;
+}
+
+.borrow-available:hover {
+    background-color: #2980b9;
+}
+
+.borrow-unavailable {
+    background-color: #6c757d;
+    color: #fff;
+    cursor: not-allowed;
+}
+
+/* تنسيق زر Return */
+.return-btn {
+    padding: 4px 10px;
+    background-color: #2ecc71;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.return-btn:hover {
+    background-color: #27ae60;
+}
+
+/* تنسيق Logout Link */
+.logout-link {
+    display: inline-block;
+    padding: 6px 12px;
+    background-color: #e74c3c;
+    color: #fff;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.logout-link:hover {
+    background-color: #c0392b;
+    text-decoration: none;
+}
+
+/* تنسيق الرسائل */
+p[style*="color:green"] {
+    background-color: #e7f3e7;
+    padding: 6px;
+    border-radius: 4px;
+    text-align: center;
+}
+
+p[style*="color:red"] {
+    background-color: #f9e3e3;
+    padding: 6px;
+    border-radius: 4px;
+    text-align: center;
+}
+
+/* Dashboard و Welcome Styling */
+.dashboard-welcome {
+    text-align: center;
+    padding: 10px;
+    background-color: #ecf0f1;
+    border-radius: 6px;
+    margin-bottom: 10px;
+}
+
+.welcome-text {
+    font-size: 16px;
+    color: #2c3e50;
+}
+
+.dashboard-menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+}
+
+.dashboard-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 12px;
+    transition: background-color 0.3s;
+    text-align: center;
+    width: 150px;
+}
+
+.dashboard-button:hover {
+    background-color: #2980b9;
+}
+
+.logout {
+    background-color: #e74c3c;
+}
+
+.logout:hover {
+    background-color: #c0392b;
+}
+
+/* Welcome Page Styling */
+.welcome-card {
+    max-width: 300px;
+    margin: 40px auto;
+    padding: 15px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.welcome-card h1 {
+    font-size: 24px;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.account-type {
+    font-size: 14px;
+    margin-bottom: 15px;
+    color: #555;
+}
+
+.account-type a {
+    display: block;
+    margin: 6px auto;
+    padding: 8px 16px;
+    width: 80%;
+    background-color: #3498db;
+    color: white;
+    border-radius: 4px;
+    transition: background-color 0.3s, transform 0.2s;
+    font-size: 12px;
+}
+
+.account-type a:hover {
+    background-color: #2980b9;
+    text-decoration: none;
+    transform: scale(1.02);
+}
+
+/* Login & Register Pages */
+.login-section,
+.register-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 10px;
+}
+
+.login-section h2,
+.register-section h2 {
+    font-size: 20px;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.form-group {
+    width: 100%;
+    max-width: 250px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-group label {
+    font-size: 12px;
+    color: #2c3e50;
+    margin-bottom: 4px;
+}
+
+.form-actions {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.form-actions button {
+    width: 100%;
+    max-width: 120px;
+}
+
+/* Footer Styling */
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #2c3e50;
+    color: #fff;
+    font-size: 10px;
+    margin-top: auto;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .container {
+        margin: 8px;
+        padding: 8px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    .welcome-card {
+        margin: 20px 8px;
+        padding: 10px;
+    }
+
+    .welcome-card h1 {
+        font-size: 20px;
+    }
+
+    .account-type a {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    form {
+        padding: 12px;
+        margin: 10px;
+    }
+
+    table th,
+    table td {
+        padding: 6px;
+        font-size: 10px;
+    }
+
+    .actions {
+        gap: 3px;
+    }
+
+    .action-btn {
+        padding: 3px 8px;
+        font-size: 10px;
+        width: 50px;
+    }
+
+    .borrow-form {
+        gap: 4px;
+    }
+
+    .form-group label {
+        font-size: 10px;
+    }
+
+    .copy-input,
+    .date-input {
+        width: 100%;
+        max-width: 80px;
+        font-size: 8px;
+        padding: 3px;
+    }
+
+    .borrow-btn {
+        font-size: 8px;
+        padding: 3px 6px;
+    }
+
+    .return-btn {
+        font-size: 8px;
+        padding: 3px 6px;
+    }
+
+    .tab-button {
+        padding: 4px 10px;
+        font-size: 10px;
+        min-width: 80px;
+    }
+
+    .tab-button[href="view_books.php"],
+    .tab-button[href="view_admins.php"] {
+        padding: 6px 12px;
+        font-size: 12px;
+        min-width: 100px;
+    }
+}
