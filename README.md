@@ -5,11 +5,6 @@ This project was developed as a college assignment to connect a database to a fu
 
 ---
 
-## 🔗 Live Preview  
-*Not available — for source code reference only*
-
----
-
 ## 🛠️ Tech Stack
 
 - **Frontend**: HTML, CSS (basic)
